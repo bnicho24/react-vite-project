@@ -1,0 +1,43 @@
+
+.image-container {
+  position: relative;
+}
+.image-thumbnail {
+  width: 100%;
+}
+.image-container .image-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+.image-container .image-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+.main-content {
+  min-height: calc( 100vh - 85px)
+}
+.toggle-sidebar .menu li a span, .toggle-sidebar .logo h2
+ {
+  display: none;
+}
+.toggle-sidebar .menu li a {
+  justify-content: center;
+}
+.toggle-sidebar .menu li a svg {
+  margin: 0;
+}
+button.rotate-button {
+  transition: transform 0.5s ease-in-out;
+}
+button.rotate-button[data-state="open"] svg {
+  transform: rotate(180deg);
+  
+}
