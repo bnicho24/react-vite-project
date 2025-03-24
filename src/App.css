@@ -39,5 +39,11 @@ button.rotate-button {
 }
 button.rotate-button[data-state="open"] svg {
   transform: rotate(180deg);
-  
+}
+.login-landing-page {
+  background: #ebf1fe
+  /* background:linear-gradient(180deg, #dde7fd 0% 50%, #000 50% 100%) */
+}
+.login-img img{
+  border-radius: 0 10px 10px 0px;
 }

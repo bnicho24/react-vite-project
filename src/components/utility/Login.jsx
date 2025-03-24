@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import logo from "../../assets/logo.png";
+import loginBg from "../../assets/loginbg.jpg"
 import {
   Form,
   FormControl,
@@ -19,59 +21,94 @@ const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
+  password: z.string().min(2, {
+    message: "Password must be at least 2 characters.",
+  }),
 });
-
+const formData = {
+  name: "nich",
+  password: "1234"
+}
 function Login() {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
+      password: "",
     },
   });
   const navigate = useNavigate()
   function onSubmit(values) {
-    let user = JSON.parse(localStorage.getItem('user'));
-    
-    console.log(user.name);
-    if (user.name === values.username) {
+    if (formData.name === values.username && formData.password === values.password ) {
+      
+        localStorage.setItem('user', JSON.stringify(formData));
         navigate("/main/dash");
       } else {
         form.setError('username', {
             type: 'manual',
-            message: 'Username mismatch',
+            message: 'Please enter correct username',
         });
+        form.setError('password', {
+          type: 'manual',
+          message: 'Please enter correct password',
+      });
         // navigate("/404");
       }
   }
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-8 p-8">
+    
+      <div className="flex flex-wrap justify-center items-center gap-8 p-8  min-h-svh login-landing-page">
+      <div class="bg-white border border-gray-200 flex items-center justify-center rounded-lg shadow-sm">
+     
 
-        <div className="max-w-md">
-          <h2 className="text-2xl font-semibold">Add Your Portfolio</h2>
-        </div>
-
-        <div className=" max-w-md">
+        <div className="w-[400px] p-6">
+          {/* <img src={logo} alt='Logo' className='w-[50px] h-[50px]' /> */}
+           <div className="mb-6 flex justify-center items-center gap-3">
+              <img className="w-[50px] h-[50px]" src={logo} alt='My App'  />
+                <h2 className="text-2xl">My App</h2>
+            </div>
+            <div>
+              <h2 className="text-2xl font-semibold mb-3 text-center">Welcome to Portfolio</h2>
+              <p class="text-balance text-muted-foreground mb-3 text-center">Login to your portfolio account</p>
+            </div>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-wrap">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
                 name="username"
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="Enter User Name" {...field} className="w-64" />
+                      <Input placeholder="Enter User Name" {...field} className="" />
+                    </FormControl>
+                    <FormMessage />
+                   
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input type="password" placeholder="Enter Password" {...field} className="" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <div className="ml-4">
-              <Button type="submit">Submit</Button>
+              <div>
+              <Button className="w-full" type="submit">Submit</Button>
               </div>
             </form>
           </Form>
         </div>
+        <div class="w-[400px] h-[500px] login-img">
+          <img src={loginBg} alt="Image" class=" h-full w-full object-cover max-w-100" /></div>
+      </div>
+        
       </div>
     </>
   );
