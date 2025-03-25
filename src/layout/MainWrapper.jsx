@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MainContent from "./MainContent";
 import Sidebar from "./Sidebar";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const MainWrapper = () => {
   const [sidebarToggle, setSidebarToggle] = useState(false);
@@ -14,7 +14,7 @@ const MainWrapper = () => {
     if(authToken === null) {
       return <Navigate to='/' replace />
     }
-    
+
   return (
     <>
       <div className={`main-wrapper ${sidebarToggle ? "toggle-sidebar" : ""}`}>
