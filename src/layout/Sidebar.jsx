@@ -26,7 +26,7 @@ const Sidebar = ({ sidebarToggle }) => {
                 } hover:bg-secondary/80 p-2 rounded-lg transition-colors duration-200`}
               >
                 <svg
-                  class="w-4 h-4 text-gray-800"
+                  className="w-4 h-4 text-gray-800"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -51,7 +51,7 @@ const Sidebar = ({ sidebarToggle }) => {
                 } hover:bg-secondary/80 p-2 rounded-lg transition-colors duration-200`}
               >
                 <svg
-                  class="w-4 h-4 text-gray-800"
+                  className="w-4 h-4 text-gray-800"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -72,7 +72,7 @@ const Sidebar = ({ sidebarToggle }) => {
                 } hover:bg-secondary/80 p-2 rounded-lg transition-colors duration-200`}
               >
                 <svg
-                  class="w-4 h-4 text-gray-800"
+                  className="w-4 h-4 text-gray-800"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -101,7 +101,7 @@ const Sidebar = ({ sidebarToggle }) => {
                 } hover:bg-secondary/80 p-2 rounded-lg transition-colors duration-200`}
               >
                 <svg
-                  class="w-4 h-4 text-gray-800"
+                  className="w-4 h-4 text-gray-800"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"

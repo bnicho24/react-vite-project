@@ -2,14 +2,14 @@ import React from 'react'
 
 import Login from '@/components/utility/Login';
 import Dashboard from '@/pages/Dashboard';
-import { useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes } from 'react-router-dom';
 import Home from '@/pages/Home';
 import MainWrapper from '@/layout/MainWrapper';
 import Services from '@/pages/Services';
 import ContactUs from '@/pages/ContactUs';
 import Profile from '@/pages/Profile';
 import Portfolio from '@/pages/Portfolio';
-import Page404 from '@/pages/page404';
+import NotFound from '@/pages/NotFound';
 const RouterPage = () => {
   return useRoutes([
     {
@@ -22,7 +22,7 @@ const RouterPage = () => {
       },
       {
         path: '*',
-        element: <Page404 />,
+        element: <Navigate to="/404" />,
       },
         {
         path: 'main', 
@@ -57,11 +57,11 @@ const RouterPage = () => {
             },
             ],
         },
-        // {
-        //     path: '/404',
-        //     element: <>404 - Page not found</>,
+        {
+            path: '404',
+            element: <><NotFound /></>,
 
-        // },
+        },
     ]);
 }
 

@@ -18,11 +18,11 @@ import { z } from "zod";
 import { useNavigate } from 'react-router-dom';
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  username: z.string().min(1, {
+    message: "Username can not be empty.",
   }),
-  password: z.string().min(2, {
-    message: "Password must be at least 2 characters.",
+  password: z.string().min(1, {
+    message: "Password can not be empty.",
   }),
 });
 const formData = {
@@ -60,7 +60,7 @@ function Login() {
     <>
     
       <div className="flex flex-wrap justify-center items-center gap-8 p-8  min-h-svh login-landing-page">
-      <div class="bg-white border border-gray-200 flex items-center justify-center rounded-lg shadow-sm">
+      <div className="bg-white border border-gray-200 flex items-center justify-center rounded-lg shadow-sm">
      
 
         <div className="w-[400px] p-6">
@@ -71,7 +71,7 @@ function Login() {
             </div>
             <div>
               <h2 className="text-2xl font-semibold mb-3 text-center">Welcome to Portfolio</h2>
-              <p class="text-balance text-muted-foreground mb-3 text-center">Login to your portfolio account</p>
+              <p className="text-balance text-muted-foreground mb-3 text-center">Login to your portfolio account</p>
             </div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -106,8 +106,8 @@ function Login() {
             </form>
           </Form>
         </div>
-        <div class="w-[400px] h-[500px] login-img">
-          <img src={loginBg} alt="Image" class=" h-full w-full object-cover max-w-100" /></div>
+        <div className="w-[400px] h-[500px] login-img">
+          <img src={loginBg} alt="Image" className=" h-full w-full object-cover max-w-100" /></div>
       </div>
         
       </div>

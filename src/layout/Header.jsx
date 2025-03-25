@@ -74,7 +74,7 @@ const Header = ({ HandleSidebarToggle }) => {
           <PopoverTrigger className="rotate-button">
             <span className="text-lg font-medium cursor-pointer flex items-center gap-2">
               {user.name ? "Nicholas" : ""} 
-              <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+              <svg className="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"></path>
             </svg>
             </span>

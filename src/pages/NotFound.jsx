@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Page404 = () => {
+const NotFound = () => {
   return (
     <>
     <div className='flex justify-center items-center flex-col'>
@@ -17,4 +17,4 @@ const Page404 = () => {
   )
 }
 
-export default Page404;
+export default NotFound;
