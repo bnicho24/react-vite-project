@@ -9,12 +9,14 @@ import { useNavigate } from "react-router-dom";
 
 const Header = ({ HandleSidebarToggle }) => {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
+    // localStorage.setItem("user",{auth: false});
+    localStorage.clear();
     navigate("/");
   };
 
-  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <header

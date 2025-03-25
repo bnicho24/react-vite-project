@@ -27,7 +27,8 @@ const formSchema = z.object({
 });
 const formData = {
   name: "nich",
-  password: "1234"
+  password: "1234",
+  auth: true
 }
 function Login() {
   const form = useForm({
