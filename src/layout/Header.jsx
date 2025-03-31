@@ -25,7 +25,7 @@ const Header = ({ HandleSidebarToggle }) => {
     >
       <div className="flex w-full items-center justify-between gap-2 sm:gap-4">
         <div
-          className="border-gray-200 p-2 border rounded-md cursor-pointer"
+          className="border-gray-200 p-2 border rounded-md cursor-pointer hover:bg-secondary/80"
           onClick={HandleSidebarToggle}
         >
           <svg
@@ -51,9 +51,9 @@ const Header = ({ HandleSidebarToggle }) => {
               className="absolute w-5 h-5 top-2.5 left-2.5 text-slate-600"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
 
@@ -75,11 +75,12 @@ const Header = ({ HandleSidebarToggle }) => {
             <span className="text-lg font-medium cursor-pointer flex items-center gap-2">
               {user.name ? "Nicholas" : ""} 
               <svg className="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"></path>
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"></path>
             </svg>
             </span>
           </PopoverTrigger>
-          <PopoverContent className="flex items-center gap-2 w-[160px]">
+          <PopoverContent className="w-[160px] p-2">
+          <div className="hover:bg-secondary/80 flex items-center gap-2 p-2">
             <svg
               className=" w-4 h-4 text-gray-800"
               aria-hidden="true"
@@ -89,9 +90,9 @@ const Header = ({ HandleSidebarToggle }) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3"
               ></path>
             </svg>
@@ -101,6 +102,7 @@ const Header = ({ HandleSidebarToggle }) => {
             >
               Logout
             </span>
+            </div>
           </PopoverContent>
         </Popover>
       </div>

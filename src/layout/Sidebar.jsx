@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 
 const Sidebar = ({ sidebarToggle }) => {
   const location = useLocation();
@@ -14,7 +14,7 @@ const Sidebar = ({ sidebarToggle }) => {
       >
         <div className="p-4">
           <div className="logo text-2xl font-semibold text-center mb-6 flex justify-center items-center gap-3">
-          <img className="w-15 transition-all" src={logo} alt='My App' />
+            <img className="w-15 transition-all" src={logo} alt="My App" />
             <h2 className=" transition-all">My App</h2>
           </div>
           <ul className="space-y-4 menu">
@@ -26,21 +26,42 @@ const Sidebar = ({ sidebarToggle }) => {
                 } hover:bg-secondary/80 p-2 rounded-lg transition-colors duration-200`}
               >
                 <svg
-                  className="w-4 h-4 text-gray-800"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 text-gray-800"
+                  viewBox="0 0 24 24"
                   fill="none"
-                  viewBox="0 0 20 20"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"
-                  ></path>
+                  {" "}
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />{" "}
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                 </svg>
                 <span className="text-sm font-medium">Dashboard</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/main/rating"
+                className={`flex items-center space-x-2 text-sm font-medium ${
+                  location.pathname === "/main/rating" ? "bg-secondary/80" : ""
+                } hover:bg-secondary/80 p-2 rounded-lg transition-colors duration-200`}
+              >
+                <svg
+                  className="h-4 w-4 text-gray-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                  />
+                </svg>
+                <span className="text-sm font-medium">Ratings</span>
               </Link>
             </li>
             <li>
@@ -51,13 +72,21 @@ const Sidebar = ({ sidebarToggle }) => {
                 } hover:bg-secondary/80 p-2 rounded-lg transition-colors duration-200`}
               >
                 <svg
-                  className="w-4 h-4 text-gray-800"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 18 20"
+                  className="h-4 w-4 text-gray-800"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"></path>
+                  {" "}
+                  <path stroke="none" d="M0 0h24v24H0z" />{" "}
+                  <polyline points="5 12 3 12 12 3 21 12 19 12" />{" "}
+                  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />{" "}
+                  <rect x="10" y="12" width="4" height="4" />
                 </svg>
                 <span className="text-sm font-medium">Home</span>
               </Link>
@@ -101,13 +130,21 @@ const Sidebar = ({ sidebarToggle }) => {
                 } hover:bg-secondary/80 p-2 rounded-lg transition-colors duration-200`}
               >
                 <svg
-                  className="w-4 h-4 text-gray-800"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 18"
+                  className="h-4 w-4 text-gray-800"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <path d="M5.022 4.764c.489 0 .75-.37.8-.856l.188-1.877A.952.952 0 0 0 5.063.985H2.791a1.127 1.127 0 0 0-1.067.749A16.11 16.11 0 0 0 1 7a16.737 16.737 0 0 0 .743 5.242c.154.463 1.748.773 2.236.773H5a.95.95 0 0 0 .946-1.046l-.188-1.877a.95.95 0 0 0-.946-.856h-.761A14.627 14.627 0 0 1 3.937 7c-.02-.747.019-1.495.114-2.236h.971Zm13.365 7.592L18.6 11H14a1 1 0 0 1 0-2h4.918l.159-1H14a1 1 0 1 1 0-2h5.393l.158-1H14a1 1 0 1 1 0-2h5.868l.111-.7a2.04 2.04 0 0 0-.473-1.629A1.912 1.912 0 0 0 18.063 0H9a1 1 0 0 0-1 1v11.78A2.985 2.985 0 0 0 7 15v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a2.991 2.991 0 0 0-1.613-2.644Z"></path>
+                  {" "}
+                  <path stroke="none" d="M0 0h24v24H0z" />{" "}
+                  <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />{" "}
+                  <line x1="20" y1="3" x2="20" y2="7" />{" "}
+                  <line x1="16" y1="3" x2="16" y2="7" />
                 </svg>
                 <span>Contact Us</span>
               </Link>

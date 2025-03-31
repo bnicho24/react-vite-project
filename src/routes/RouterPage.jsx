@@ -10,6 +10,7 @@ import ContactUs from '@/pages/ContactUs';
 import Profile from '@/pages/Profile';
 import Portfolio from '@/pages/Portfolio';
 import NotFound from '@/pages/NotFound';
+import RatingPage from '@/pages/RatingPage';
 const RouterPage = () => {
   return useRoutes([
     {
@@ -25,13 +26,17 @@ const RouterPage = () => {
         element: <Navigate to="/404" />,
       },
         {
-        path: 'main', 
+        path: '/main', 
         element: <MainWrapper />,
         children: [
             {
                 path: 'dash', 
                 element: <Dashboard />,
     
+            },
+            {
+                path: 'rating', 
+                element: <RatingPage />,
             },
             {
                 path: 'home',
@@ -58,7 +63,7 @@ const RouterPage = () => {
             ],
         },
         {
-            path: '404',
+            path: '/404',
             element: <><NotFound /></>,
 
         },

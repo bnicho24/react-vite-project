@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CountryCard from "./CountryCard";
 import { Input } from "../../ui/input";
+import SearchBox from "../SearchBox/SearchBox";
 
 const Countries = () => {
   const [countryValue, setCountryValue] = useState("");
@@ -45,6 +46,7 @@ const Countries = () => {
           onChange={HandleChange}
           className="w-64"
         />
+        {/* <SearchBox handleChange={HandleChange} /> */}
       </div>
 
       <div className="flex gap-3">

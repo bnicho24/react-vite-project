@@ -81,7 +81,7 @@ function Login() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="Enter User Name" {...field} className="" />
+                      <Input placeholder="User Name: nich" {...field} className="" />
                     </FormControl>
                     <FormMessage />
                    
@@ -94,7 +94,7 @@ function Login() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input type="password" placeholder="Enter Password" {...field} className="" />
+                      <Input type="password" placeholder="Password: 1234" {...field} className="" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -47,3 +47,124 @@ button.rotate-button[data-state="open"] svg {
 .login-img img{
   border-radius: 0 10px 10px 0px;
 }
+
+/* .accordion-content {
+  overflow: hidden; 
+  animation: accordion-down 0.3s ease-out; 
+} */
+/* .data-[state=closed]:animate-accordion-up {
+  overflow: hidden; 
+  animation: accordion-up 0.3s ease-out; 
+} */
+@keyframes accordion-up {
+  0% {
+      height: var(--radix-accordion-content-height)
+  }
+
+  to {
+      height: 0
+  }
+}
+
+.data-\[state\=closed\]\:animate-accordion-up[data-state=closed] {
+  animation: accordion-up .2s ease-out
+}
+
+@keyframes accordion-down {
+  0% {
+      height: 0
+  }
+
+  to {
+      height: var(--radix-accordion-content-height)
+  }
+}
+
+.data-\[state\=open\]\:animate-accordion-down[data-state=open] {
+  animation: accordion-down .2s ease-out;
+}
+.accordion-btn {
+  background-color: #0a71b9;
+  color: #fff;
+  cursor: pointer;
+}
+.accordion-btn:hover {
+  text-decoration: none;
+}
+.accordion-btn svg.lucide {
+  color: #fff;
+}
+.selected {
+  background-color: #0a71b9;
+  border-radius:10px;
+  color: #fff;
+}
+.empty-stars:before, .full-stars:before, .full-width-stars:before {
+  content: "\2605\2605\2605\2605\2605";
+  font-size: 26px;
+}
+.ratings {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #a3a3a3;
+  overflow: hidden;
+}
+.full-width-stars {
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fde16d;
+  width: 100%;
+}
+.full-stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fde16d;
+}
+/* Search box */
+.custom-search-box {
+  position: relative;
+}
+.search-list {
+  position: absolute;
+  top:36px;
+  left:0;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  overflow-y:auto;
+  max-height: 125px;
+  display: none;
+  box-shadow: 0px 4px 5px 1px #e5e5e5;
+  /* width: 100%; */
+}
+.search-list.open {
+  display: block;
+}
+.search-list ul li {
+  padding: 5px 10px;
+
+}
+.search-list ul li:hover {
+  background-color: #f5f5f5;
+  
+}
+.custom-search-box .arrow {
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-top: 3px;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 0;
+}
+.custom-search-box .arrow.open {
+  border-color: transparent transparent #999;
+  border-width: 0 5px 5px;
+}

@@ -13,8 +13,19 @@ import {
   import Countries from '@/components/utility/Countries/Countries'
   import Memes from '@/components/utility/Memes/Memes'
 import Profile from './Profile'
+import Rating from './RatingPage'
+import { Button } from '@/components/ui/button'
+import { Navigate, useNavigate } from 'react-router-dom'
+import SearchBox from '@/components/utility/SearchBox/SearchBox'
 
 function Dashboard() {
+    const navigate = useNavigate()
+    const handleRating =() => {
+        // return <Navigate to="/main/rating" replace />
+        // console.log('onclick')
+        navigate('/main/rating');
+    }
+
   return (
     <>
    
@@ -26,15 +37,24 @@ function Dashboard() {
     <div className='flex flex-wrap gap-4'>
     <Card className='w-64'>
         <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card Description</CardDescription>
+            <CardTitle>Rating </CardTitle>
+            <CardDescription>Rating Summary App</CardDescription>
         </CardHeader>
         <CardContent>
-            <Profile />
+            <p className='pb-3'>Click here to see the rating app <span className="full-width-stars"></span></p>
+            
+            <Button className="w-full cursor-pointer" type="submit" onClick={handleRating}>Rating</Button>
         </CardContent>
-        <CardFooter>
-            <p>Card Footer</p>
-        </CardFooter>
+    </Card>
+    <Card className='w-[500px]'>
+        <CardHeader>
+            <CardTitle>Use Effect</CardTitle>
+            <CardDescription>Countries</CardDescription>
+        </CardHeader>
+        <CardContent>
+            <SearchBox />
+            <Countries />
+        </CardContent>
     </Card>
     <Card className='w-64'>
         <CardHeader>
@@ -45,6 +65,8 @@ function Dashboard() {
             <Counter />
         </CardContent>
     </Card>
+    
+    
     <Card className='w-72'>
         <CardHeader>
             <CardTitle>Use State</CardTitle>
@@ -52,15 +74,6 @@ function Dashboard() {
         </CardHeader>
         <CardContent>
             <CharacterSlider totalPoints={15} />
-        </CardContent>
-    </Card>
-    <Card className='w-[500px]'>
-        <CardHeader>
-            <CardTitle>Use Effect</CardTitle>
-            <CardDescription>Countries</CardDescription>
-        </CardHeader>
-        <CardContent>
-            <Countries />
         </CardContent>
     </Card>
     <Card className='w-72'>
