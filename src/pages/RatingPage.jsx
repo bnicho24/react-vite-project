@@ -54,6 +54,7 @@ const RatingPage = () => {
   
   useEffect(() => {
     HandlingInitialState();
+    // setSummaryValue("")
   }, []);
 
   const handleClick = (e, pageNumber, categoryIndex, questionIndex) => {
@@ -73,6 +74,7 @@ const RatingPage = () => {
     setSummaryValue((prevSummary) => {
       const updatedSummary = prevSummary.map((item) => {
         //update
+        console.log('item', item)
         if (item.category === ratingDatas[categoryIndex].category) {
           return {
             ...item,
@@ -105,11 +107,28 @@ const RatingPage = () => {
       console.log("prev number", prevNumber);
 
       //getting summery chart prev values
-      const questionKey = ratingDatas[categoryIndex].questions[questionIndex];
-      setSummaryValue((preRating)=> ({
-        ...preRating,
-        [questionKey]: prevNumber,
-      }))
+      setSummaryValue((prevSummary) => {
+        const updatedSummary = prevSummary.map((item) => {
+          //update
+          console.log('item', item)
+          if (item.category === ratingDatas[categoryIndex].category) {
+            return {
+              ...item,
+              [`question${questionIndex + 1}`]: prevNumber,
+            };
+          }
+          return item;
+        });
+        //add
+        if (!updatedSummary.some((item) => item.category === ratingDatas[categoryIndex].category)) {
+          updatedSummary.push({
+            category: ratingDatas[categoryIndex].category,
+            [`question${questionIndex + 1}`]: prevNumber,
+          });
+        }
+  
+        return updatedSummary;
+      });
     }
   };
 
@@ -124,12 +143,29 @@ const RatingPage = () => {
       }));
       console.log("prev number", nextNumber);
 
-      //getting summery chart prev values
-      const questionKey = ratingDatas[categoryIndex].questions[questionIndex];
-      setSummaryValue((preRating)=> ({
-        ...preRating,
-        [questionKey]: nextNumber,
-      }))
+      //getting summery chart next values
+      setSummaryValue((prevSummary) => {
+        const updatedSummary = prevSummary.map((item) => {
+          //update
+          console.log('item', item)
+          if (item.category === ratingDatas[categoryIndex].category) {
+            return {
+              ...item,
+              [`question${questionIndex + 1}`]: nextNumber,
+            };
+          }
+          return item;
+        });
+        //add
+        if (!updatedSummary.some((item) => item.category === ratingDatas[categoryIndex].category)) {
+          updatedSummary.push({
+            category: ratingDatas[categoryIndex].category,
+            [`question${questionIndex + 1}`]: nextNumber,
+          });
+        }
+  
+        return updatedSummary;
+      });
     }
   };
 
@@ -153,6 +189,7 @@ const RatingPage = () => {
 
   const handleClearRating = () => {
     HandlingInitialState();
+    setSummaryValue([])
   }
   
   const HandlingInitialState = () => {
@@ -175,7 +212,7 @@ const RatingPage = () => {
         onValueChange={setActiveAccordion}
       >
         {ratingDatas.map((ratingData, categoryIndex) => (
-          <AccordionItem value={`item-${categoryIndex}`} key={categoryIndex}>
+          <AccordionItem value={`item-${categoryIndex}`} key={`item-${categoryIndex}`}>
             <AccordionTrigger className="accordion-btn px-6 flex justify-between items-center">
               <div>{ratingData.category}</div>
 
@@ -190,6 +227,7 @@ const RatingPage = () => {
 
                 {ratingData.questions.map((questionName, questionIndex) => (
                   <QuestionsSection
+                  key={`question-${categoryIndex}-${questionIndex}`}
                     questionName={questionName}
                     questionIndex={questionIndex}
                     numbers={numbers}

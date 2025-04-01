@@ -19,19 +19,31 @@ import { Button } from '@/components/ui/button'
 
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "hsl(var(--chart-1))",
+  question1: {
+    label: "Question1",
+    color: "red",
   },
-  // mobile: {
-  //   label: "Mobile",
-  //   color: "hsl(var(--chart-2))",
-  // },
+  question2: {
+    label: "Question2",
+    color: "green",
+  },
+  question3: {
+    label: "Question3",
+    color: "blue",
+  },
+  question4: {
+    label: "Question5",
+    color: "yellow",
+  },
+  question5: {
+    label: "Question5",
+    color: "orange",
+  },
 }
 
 const SummaryChart = (props) => {
 // console.log(props)
-  const { chartData, } = props;
+  const { chartData } = props;
   console.log('chartData', chartData)
 
   
@@ -43,15 +55,19 @@ const SummaryChart = (props) => {
 
   return (
     <Dialog>
-    <DialogTrigger>
-    <Button className="mt-3 cursor-pointer" type="submit">Rating Summary</Button>
+    <DialogTrigger className="mt-3 cursor-pointer bg-primary font-medium rounded-md 
+    text-primary-foreground shadow-xs hover:bg-primary/90 h-9 px-4 has-[>svg]:px-3 text-sm">
+    {/* <Button className="mt-3 cursor-pointer" type="submit"> */}
+      Rating Summary
+      {/* </Button> */}
     </DialogTrigger>
     <DialogContent>
         <DialogHeader>
         <DialogTitle>Rating Summary</DialogTitle>
-        <DialogDescription>
-
-          <ChartContainer config={chartConfig}>
+        </DialogHeader>
+        {/* <DialogDescription> */}
+{chartData.length > 0 ? (
+  <ChartContainer config={chartConfig}>
             <BarChart accessibilityLayer data={chartData}>
               <CartesianGrid vertical={false} />
               <XAxis
@@ -65,6 +81,7 @@ const SummaryChart = (props) => {
                 cursor={false}
                 content={<ChartTooltipContent indicator="dashed" />}
               />
+
               <Bar dataKey="question1" fill="red" radius={4} />
               <Bar dataKey="question2" fill="green" radius={4} />
               <Bar dataKey="question3" fill="blue" radius={4} />
@@ -73,9 +90,11 @@ const SummaryChart = (props) => {
 
             </BarChart>
           </ChartContainer>
+): (<span>0 Data found. Please add some rating and see the chart</span>)
+}
             
-        </DialogDescription>
-        </DialogHeader>
+        {/* </DialogDescription> */}
+       
     </DialogContent>
     </Dialog>
   )
