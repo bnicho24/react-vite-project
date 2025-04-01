@@ -10,6 +10,7 @@ import RatingStars from "@/components/utility/Ratings/RatingStars";
 import QuestionsSection from "@/components/utility/Ratings/QuestionsSection";
 // import { ClearRatingContext } from "@/context/clearRatingContext";
 import { Button } from "@/components/ui/button";
+import SummaryChart from "@/components/utility/SummaryChart/SummaryChart";
 
 const RatingPage = () => {
   const numbers = [0, 1, 2, 3, 4, 5];
@@ -39,6 +40,9 @@ const RatingPage = () => {
 
   const [rangeValue, setRangeValue] = useState({});
   const [activeAccordion, setActiveAccordion] = useState("item-0");
+
+  const [summaryValue, setSummaryValue] = useState([]);
+
   // useEffect(() => {
   //   const initialState = {};
   //   for (let i = 0; i < ratingDatas?.questionNames?.length; i++) {
@@ -62,6 +66,31 @@ const RatingPage = () => {
       [`${categoryIndex}-${questionIndex}`]: pageNumber,
     }));
     console.log("RangeValue:", rangeValue);
+
+    //getting summery chart click values
+    // const questionKey = ratingDatas[categoryIndex].questions[questionIndex];
+  
+    setSummaryValue((prevSummary) => {
+      const updatedSummary = prevSummary.map((item) => {
+        //update
+        if (item.category === ratingDatas[categoryIndex].category) {
+          return {
+            ...item,
+            [`question${questionIndex + 1}`]: pageNumber,
+          };
+        }
+        return item;
+      });
+      //add
+      if (!updatedSummary.some((item) => item.category === ratingDatas[categoryIndex].category)) {
+        updatedSummary.push({
+          category: ratingDatas[categoryIndex].category,
+          [`question${questionIndex + 1}`]: pageNumber,
+        });
+      }
+
+      return updatedSummary;
+    });
   };
   
   const handlePrevClick = (e, categoryIndex, questionIndex) => {
@@ -74,6 +103,13 @@ const RatingPage = () => {
         [`${categoryIndex}-${questionIndex}`]: prevNumber,
       }));
       console.log("prev number", prevNumber);
+
+      //getting summery chart prev values
+      const questionKey = ratingDatas[categoryIndex].questions[questionIndex];
+      setSummaryValue((preRating)=> ({
+        ...preRating,
+        [questionKey]: prevNumber,
+      }))
     }
   };
 
@@ -87,6 +123,13 @@ const RatingPage = () => {
         [`${categoryIndex}-${questionIndex}`]: nextNumber,
       }));
       console.log("prev number", nextNumber);
+
+      //getting summery chart prev values
+      const questionKey = ratingDatas[categoryIndex].questions[questionIndex];
+      setSummaryValue((preRating)=> ({
+        ...preRating,
+        [questionKey]: nextNumber,
+      }))
     }
   };
 
@@ -102,6 +145,7 @@ const RatingPage = () => {
     }
 
     const totalRating = categoryRatings.reduce((a, val) => a + val, 0);
+    console.log('totalRating', totalRating)
     const width = 20 + (totalRating - 1) * 20;
     const totalWidth = width / categoryRatings.length;
     return `${Math.min(totalWidth, 100)}%`;
@@ -120,6 +164,7 @@ const RatingPage = () => {
     });
     setRangeValue(initialState);
   }
+  console.log('summaryValue', summaryValue)
   return (
     <>
     {/* <ClearRatingContext.Provider> */}
@@ -161,8 +206,13 @@ const RatingPage = () => {
           </AccordionItem>
         ))}
       </Accordion>
-
+      <div className="flex justify-end items-center gap-2">
+        <SummaryChart chartData={summaryValue}  />
+      
       <Button className="mt-3 cursor-pointer" type="submit" onClick={handleClearRating}>Clear Ratings</Button>
+      </div>
+
+      
       {/* </ClearRatingContext.Provider> */}
     </>
   );

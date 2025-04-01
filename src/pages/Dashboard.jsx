@@ -35,7 +35,7 @@ function Dashboard() {
       </h1>
     </div>
     <div className='flex flex-wrap gap-4'>
-    <Card className='w-64'>
+    <Card className='min-w-64 flex-1 h-auto'>
         <CardHeader>
             <CardTitle>Rating </CardTitle>
             <CardDescription>Rating Summary App</CardDescription>
@@ -46,7 +46,7 @@ function Dashboard() {
             <Button className="w-full cursor-pointer" type="submit" onClick={handleRating}>Rating</Button>
         </CardContent>
     </Card>
-    <Card className='w-[500px]'>
+    <Card className='min-w-[400px] flex-1 h-auto'>
         <CardHeader>
             <CardTitle>Use Effect</CardTitle>
             <CardDescription>Countries</CardDescription>
@@ -56,7 +56,7 @@ function Dashboard() {
             <Countries />
         </CardContent>
     </Card>
-    <Card className='w-64'>
+    <Card className='min-w-64 flex-1 h-auto'>
         <CardHeader>
             <CardTitle>Use State</CardTitle>
             <CardDescription>Counter</CardDescription>
@@ -67,7 +67,7 @@ function Dashboard() {
     </Card>
     
     
-    <Card className='w-72'>
+    <Card className='w-[300px] h-auto'>
         <CardHeader>
             <CardTitle>Use State</CardTitle>
             <CardDescription>Character Slider</CardDescription>
@@ -76,7 +76,7 @@ function Dashboard() {
             <CharacterSlider totalPoints={15} />
         </CardContent>
     </Card>
-    <Card className='w-72'>
+    <Card className='min-w-[200px] flex-1 h-auto'>
         <CardHeader>
             <CardTitle>Use Effect</CardTitle>
             <CardDescription>Meme Image</CardDescription>
