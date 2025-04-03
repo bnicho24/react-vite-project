@@ -55,7 +55,7 @@ const Memes = () => {
         <>
             <h4>Memes</h4>
             <Form {...form}>
-            <form onSubmit={form.handleSubmit(getMemesImg)} className="space-y-8 flex flex-wrap">
+            <form onSubmit={form.handleSubmit(getMemesImg)} className="space-y-8 flex flex-wrap gap-2">
               <FormField
                 control={form.control}
                 name="title"

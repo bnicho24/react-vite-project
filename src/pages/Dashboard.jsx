@@ -25,6 +25,9 @@ function Dashboard() {
         // console.log('onclick')
         navigate('/main/rating');
     }
+    const handleToDoList =() => {
+        navigate('/main/todolist');
+    }
 
   return (
     <>
@@ -46,6 +49,27 @@ function Dashboard() {
             <Button className="w-full cursor-pointer" type="submit" onClick={handleRating}>Rating</Button>
         </CardContent>
     </Card>
+    <Card className='min-w-64 flex-1 h-auto'>
+        <CardHeader>
+            <CardTitle>To Do List </CardTitle>
+            <CardDescription>User list component</CardDescription>
+        </CardHeader>
+        <CardContent>
+            <p className='pb-3'>Click here to see the user list To do's</p>
+            
+            <Button className="w-full cursor-pointer" type="submit" onClick={handleToDoList}>To Do List</Button>
+        </CardContent>
+    </Card>
+    
+    <Card className='min-w-64 flex-1 h-auto'>
+        <CardHeader>
+            <CardTitle>Use State</CardTitle>
+            <CardDescription>Counter</CardDescription>
+        </CardHeader>
+        <CardContent>
+            <Counter />
+        </CardContent>
+    </Card>
     <Card className='min-w-[400px] flex-1 h-auto'>
         <CardHeader>
             <CardTitle>Use Effect</CardTitle>
@@ -56,16 +80,6 @@ function Dashboard() {
             <Countries />
         </CardContent>
     </Card>
-    <Card className='min-w-64 flex-1 h-auto'>
-        <CardHeader>
-            <CardTitle>Use State</CardTitle>
-            <CardDescription>Counter</CardDescription>
-        </CardHeader>
-        <CardContent>
-            <Counter />
-        </CardContent>
-    </Card>
-    
     
     <Card className='w-[300px] h-auto'>
         <CardHeader>

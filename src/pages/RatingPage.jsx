@@ -72,6 +72,7 @@ const RatingPage = () => {
     // const questionKey = ratingDatas[categoryIndex].questions[questionIndex];
   
     setSummaryValue((prevSummary) => {
+      console.log('prevSummary', prevSummary)
       const updatedSummary = prevSummary.map((item) => {
         //update
         console.log('item', item)
@@ -227,7 +228,7 @@ const RatingPage = () => {
 
                 {ratingData.questions.map((questionName, questionIndex) => (
                   <QuestionsSection
-                  key={`question-${categoryIndex}-${questionIndex}`}
+                    key={`question-${categoryIndex}-${questionIndex}`}
                     questionName={questionName}
                     questionIndex={questionIndex}
                     numbers={numbers}
@@ -245,7 +246,7 @@ const RatingPage = () => {
         ))}
       </Accordion>
       <div className="flex justify-end items-center gap-2">
-        <SummaryChart chartData={summaryValue}  />
+        <SummaryChart chartData={summaryValue || []}  />
       
       <Button className="mt-3 cursor-pointer" type="submit" onClick={handleClearRating}>Clear Ratings</Button>
       </div>

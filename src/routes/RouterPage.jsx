@@ -11,6 +11,7 @@ import Profile from '@/pages/Profile';
 import Portfolio from '@/pages/Portfolio';
 import NotFound from '@/pages/NotFound';
 import RatingPage from '@/pages/RatingPage';
+import UserToDoList from '@/pages/UserToDoList';
 const RouterPage = () => {
   return useRoutes([
     {
@@ -37,6 +38,10 @@ const RouterPage = () => {
             {
                 path: 'rating', 
                 element: <RatingPage />,
+            },
+            {
+                path: 'todolist', 
+                element: <UserToDoList />,
             },
             {
                 path: 'home',
